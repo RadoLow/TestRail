@@ -1,0 +1,641 @@
+Bank
+
+Roles:
+Manager
+Customer
+
+
+Test Cases
+
+
+Manager:
+
+
+
+Change password
+
+C1	Passed - Changing password as a manager - happy path
+
+1 Go to bank website https://demo.guru99.com/v4/index.php
+2 Login as manager
+3 Go to change password panel
+4 Type old password
+5 Type new password
+6 Press submit
+
+A manager can change password of only his account. He cannot change passwords of his customers
+
+
+
+
+C2	Passed - Changing password using empty new password field
+
+1 Go to bank website https://demo.guru99.com/v4/index.php
+2 Login as manager
+3 Go to change password panel
+4 Type old password
+5 Skip typing of new password
+6 Press submit
+
+System shows an error
+
+
+
+
+C3	Passed - Changing password using empty old password field
+
+1 Go to bank website https://demo.guru99.com/v4/index.php
+2 Login as manager
+3 Go to change password panel
+4 Do not type old password
+5 Type new password
+6 Press submit
+
+System shows an error
+
+
+Balance equiry
+
+C4	Failed - Balance equiry in manager account - happy path
+
+1 Go to bank website https://demo.guru99.com/v4/index.php
+2 Login as manager
+3 Go to balance equiry
+4 Type existing account number
+5 Press submit
+
+A manager can view balance of all the customers who come under his supervision
+
+C5	Passed - Balance equiriy using not exisiting account number
+
+1 Go to bank website  https://demo.guru99.com/v4/index.php
+2 Login as manager
+3 Go to balance equiry
+4 Type not existing account number
+5 Press submit
+
+System shows an error
+
+
+Deposit
+
+C6	Failed - Creating a deposit as a manager - happy path
+
+1.Go to bank website https://demo.guru99.com/v4/index.php
+2.Login as manager
+3.Click desposit
+4.Type existing account number
+5.Type amount of deposit
+6.Type a description
+7.Press submit
+
+A manager can deposit money into any account. Usually done when cash is deposited at a bank branch.
+
+C7	Passed - Creating a desposit using blank field of description
+
+1.Go to bank website https://demo.guru99.com/v4/index.php
+2.Login as manager
+3.Click desposit
+4.Type an existing account number
+5.Type amount of deposit
+6.Do not type a description
+7.Press submit
+
+System shows an error
+
+
+Delete Customer
+
+C8	Passed - Delete customer as a manager - happy path
+
+1.Go to bank website https://demo.guru99.com/v4/index.php
+2.Login as manager
+3.Click delete customer button
+4.Type a existing customer ID
+5.Press submit
+
+A manager can delete a customer.
+
+C9	Passed - Deleting a customer using customer ID includes special character
+
+1 Go to bank website https://demo.guru99.com/v4/index.php
+2 Login as manager
+3 Click delete customer button
+4 Type customer ID adding special character inside
+5 Press submit
+
+System shows an error
+
+
+New Customer
+
+C10	Passed - Add a new customer by a manager - happy path
+
+1 Go to bank website https://demo.guru99.com/v4/index.php
+2 Login as a manager
+3 Click new customer button
+4 Type a corrent customer name
+5 Select gender
+6 Type a date of birth
+7 Type correct address including city and state
+8 Type correct PIN number
+9 Type corrent telephone number
+10Type correct and non used e-mail adress
+11Press submit
+
+A manager can add a new customer
+
+C11	Passed - Creating a customer using customer name which includes numbers
+
+1 Go to bank website https://demo.guru99.com/v4/index.php
+2 Login as a manager
+3 Click new customer button
+4 Type a customer name with numbers inside
+5 Select gender
+6 Type a date of birth
+7 Type adress including city and state
+8 Type PIN number
+9 Type telephone number
+10 Type e-mail adress
+11 Press submit
+
+System shows an error
+
+C12	Passed - Creating a new customer using existed e-mail adress in database
+
+Go to bank website https://demo.guru99.com/v4/index.php
+Login as a manager
+Click new customer button
+Type a customer name
+Select gender
+Type a date of birth
+Type adress including city and state
+Type PIN number
+Type telephone number
+Type e-mail adress which is used by another customer
+Press submit
+
+System shows an error
+
+C13	Passed - Creating a new customer using PIN number with 5 digits
+
+Go to bank website https://demo.guru99.com/v4/index.php
+Login as a manager
+Type a correct customer name
+Click new customer button
+Select gender
+Type a date of birth
+Type correct adress including city and state
+Type PIN number with 5 digits
+Type corrent telephone number
+Type correct e-mail adress
+Press submit
+
+Sustem shows an error
+
+
+Withdrawal
+
+C14	Failed - Realise a withdrawal as a manager - happy path
+
+Go to bank website https://demo.guru99.com/v4/index.php
+Login as manager
+Click withdrawal button
+Type an existing customer's account number
+Select an amount
+Add a descrition
+Press submit
+
+A manager can withdraw money from any account. Usually done when cash is withdrawn at a bank branch.
+
+C15	Passed - Realise a withdraw using not existing account number
+
+Go to bank website https://demo.guru99.com/v4/index.php
+Login as manager
+Click withdrawal button
+Type a not existing customer account number
+Select an amount
+Add a descrition
+Press submit
+
+System shows an error
+
+
+Customized Statement
+
+C16	Failed - Doing a customized statement as a manager - happy path
+
+Go to bank website https://demo.guru99.com/v4/index.php
+Generate Access as manager using instraction below  
+Login as manager
+Type an account number
+Select a time interval from date to date
+Set an amount lower limit
+Press submit
+
+A manager can see Customized -statement of any account
+
+C17	Passed - Doing a customized statement for non-existent account number
+
+Go to bank website https://demo.guru99.com/v4/index.php
+Login as manager
+Click mini statement button
+Type an non-existent account number
+Press submt
+
+A manager can't see mini-statement of non-existent account
+
+Mini statement
+
+C18	Failed - Doing mini statement as a manager - happy path
+
+Go to bank website https://demo.guru99.com/v4/index.php
+Login as manager
+Click mini statement button
+Type an account number
+Press submit
+
+A manager can see mini-statement of any account
+
+C19	Passed - Doing mini statement as a manager for non-existent account number
+
+Go to bank website https://demo.guru99.com/v4/index.php
+Login as manager
+Click mini statement button
+Type an non-existent account number
+Press submt
+
+A manager can't see mini-statement of non-existent account
+
+
+Fund transfer
+
+C20	Passed - Fund transfer as a manager - happy path
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+Click fund transfer button
+Type a payer account number
+Type a payee account number
+Set an amount
+Press submit
+
+A manager can transfer funds from any source bank account to destination account
+
+C21	Passed - Fund transfer as a manager If these source and destination account numbers are invalid
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+Click fund transfer button
+Type a payer invalid account number
+Type a payee invalid account number
+Set an amount
+Press submit
+
+system displays an error
+
+C22	Passed - Fund transfer as a manager If these source and destination account numbers are same
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+Click fund transfer button
+Type a payer account number
+Type a payee same account number
+Set an amount
+Press submit
+
+system displays an error
+
+
+C23	Passed - Funf transfer as a manager If the source account does not associated with manager
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+Click fund transfer button
+Type a payer account does not associated with manager
+Type a payee account
+Set an amount
+Press submit
+
+system displays an error
+
+
+login&logout
+
+C24	Passed - Login as a manager - happy path
+
+1.Go to bank website  https://demo.guru99.com/v4/index.php
+2.Login as manager
+
+Magager is log in
+
+C25	Passed - Logout as a manager - happy path
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+log in as manager
+Click log out
+
+Manager is logged out
+
+
+Delete Account
+
+C26	Failed - Delete account as a manager - happy path
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+Type customer ID
+Press submit
+
+A manager can add a delete an account for a customer
+
+C27	Passed - Delete account as a manager if account is invalid
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+click delete account button
+Type invalid account customer ID
+Press submit
+
+system displays an error
+
+C28	Failed - Delete account as a manager if account does not associate with manager logged in
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+click delete account button
+Type account does not associate with manager logged in
+Press submit
+
+system displays an error
+
+
+New Account
+
+C29	Passed - Create new accound as a manager - happy path
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+click New Accound buton
+Type a customer ID
+Set an account type
+Set an initial deposit
+Press submit
+
+Currently system provides 2 types of accounts
+●   Saving
+●   Current
+A customer can have multiple saving accounts (one in his name , other in a joint name etc).
+He can have multiple current accounts for different companies he owns.
+
+C30	Passed - Create new account if Customer ID is invalid
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+click New Account buton
+Type a customer invalid ID
+Set an account type
+Set an initial deposit
+Press submit
+
+system displays an error
+
+
+Edit Account
+
+C31	Failed - Editon account as a manager - happy path
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+Click edit account button
+Type a customer ID
+Press submit
+
+A manager can add a edit account details for an existing account
+
+C32	Passed - No edition account as a manager
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+Click edit account button
+Type a customer wrong ID
+Press submit
+
+A manager can't add a edit account details for an existing account
+
+Edit customer
+
+C33	Passed - As a manager edit customers details - happy path
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+Click Edit customer button
+Type a existing customer ID
+Press submit
+
+A manager can edit details like address, email , telephone of a customer.
+
+C34	Passed - As a manager no edit customers details
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as manager
+Click edit customer button
+Type a wrong customer ID
+Press submit
+
+A manager cant edit details like address, email , telephone of a customer.
+
+
+
+Customer
+
+
+Balance enquiry
+
+C35	Failed - multiple bank accounts - happy path
+
+1.Go to bank website  https://demo.guru99.com/v4/index.php
+2.Login as customer
+3.Click balance enquity button
+4.Enter acount number
+5.Press submit
+
+A customer can have multiple bank accounts. He can view balance of his accounts only
+
+No multiple bank accounts
+
+
+Fund transfer
+
+	Failed -transfer funds - happy path
+no transfer funds
+
+
+Mini statement
+
+A Mini statement - happy path
+A mini statment invalid account
+
+
+Customized statement
+
+	Failed - filter and display transactions from date - happy path
+
+1.Go to bank website:   https://demo.guru99.com/v4/index.php
+2.Login as customer
+3.press Customized Statement
+4.Enter account number
+5.Enter from date
+6.enter to date
+7.enter Minimum Transaction Value
+8.Number of Transaction
+9.press submit
+
+A customer can see Customized- statement of only his “own” accounts displaying transactions from a specific date
+
+	Failed - filter and display transactions to date - happy path
+
+1.Go to bank website:   https://demo.guru99.com/v4/index.php
+2.Login as customer
+3.press Customized Statement
+4.Enter account number
+5.Enter from date
+6.enter to date
+7.enter Minimum Transaction Value
+8.Number of Transaction
+9.press submit
+
+A customer can see Customized- statement of only his “own” accounts displaying transactions to a specific date
+
+	Failed - search for statement by the lower amount limit - happy path
+
+1.Go to bank website:  https://demo.guru99.com/v4/index.php
+2.Login as customer
+3.press mini statment
+4.Enter account number
+5.Enter submit
+
+A customized statement allows you to filter and display transaction value
+
+	Failed - search for statement by number transaction - happy path
+
+1.Go to bank website:   https://demo.guru99.com/v4/index.php
+2.Login as customer
+3.press Customized Statement
+4.Enter account number
+5.Enter from date
+6.enter to date
+7.enter Minimum Transaction Value
+8.enter Number of Transaction
+9.press submit
+
+A customized statement allows you to filter and display transaction number
+
+	Passed - filter and display transactions from date - incorect date
+
+1.Go to bank website  https://demo.guru99.com/v4/index.php
+2.Login as customer
+3.press Customized Statement
+4.Enter account number
+5.Enter from date - the customer entered the incorrect date
+6.enter to date
+7.enter Minimum Transaction Value
+8.enter Number of Transaction
+9.press submit
+
+A customer not can see mini-statement. System dispalys an error.
+
+	Passed - filter and display transactions to date - incorrect date
+
+1.Go to bank website  https://demo.guru99.com/v4/index.php
+2.Login as customer
+3.press Customized Statement
+4.Enter account number
+5.Enter from date
+6.enter to date - the customer entered the incorrect date
+7.enter Minimum Transaction Value
+8.enter Number of Transaction
+9.press submit
+
+A customer not can see mini-statement. If transaction not exist in system, System displays an error.
+
+search for statement by the lower amount limit - incorrect value
+
+1.Go to bank website:  https://demo.guru99.com/v4/index.php
+2.Login as customer
+3.press mini statment
+4.Enter account number
+5.Enter value  the user entered for a low amount
+6.Enter submit
+
+A customer not can see mini-statement. System displays an error.
+
+search for statement by number transaction - incorrect transaction number
+
+1.Go to bank website:   https://demo.guru99.com/v4/index.php
+2.Login as customer
+3.press Customized Statement
+4.Enter account number
+5.Enter from date
+6.enter to date
+7.enter Minimum Transaction Value
+8.enter Number of Transaction - the user has entered an incorrect transaction number
+9.press submit
+
+A customer not can see mini-statement. System displays an error.
+
+
+Change password
+
+Passed - change password - happy path
+
+1.Go to bank website  https://demo.guru99.com/v4/index.php
+2.Login as customer
+3.Enter change password
+4.Enter old password
+5.Enter new password
+6.Enter confirm password
+
+A customer can change password of only his account.
+
+Passed - failed password change - Old Password is invalid
+
+1.Go to bank website  https://demo.guru99.com/v4/index.php
+2.Login as customer
+3.Enter change password
+4.Enter old password - the user entered the incorrect old password
+5.Enter new password
+6.Enter confirm password
+7 press submit
+
+password change not possible. System shows an error.
+
+Login&logout
+
+Passed - Login as a customer - happy path
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as a customer
+
+Customer is logged in
+
+Passed - Logout as a customer - happy path
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+Login as customer
+Submit log out
+
+Customer is logged out
+
+Passed - Login as a customer - User ID is blank
+
+Go to bank website  https://demo.guru99.com/v4/index.php
+enter User ID - the user has not entered an User ID
+enter the password
+press login
+
+login is not possible
+
+
+
+
